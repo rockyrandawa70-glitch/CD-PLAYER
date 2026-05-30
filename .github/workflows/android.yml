@@ -19,18 +19,14 @@ name: Android CI
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew || echo "gradlew not found"
+  
+      - name: Install Gradle
+        uses: gradle/actions/setup-gradle@v3
 
       - name: Build with Gradle
         run: |
-          if [ ! -f "./gradlew" ]; then
-            sudo apt-get install gradle -y
-            gradle assembleDebug
-          else
-            ./gradlew assembleDebug
-          fi
+          # We use the 'gradle' command directly since we don't have gradlew
+          gradle assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
