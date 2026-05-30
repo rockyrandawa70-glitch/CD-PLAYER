@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gramophone_brown_dark"
+    tools:context=".ui.main.MainActivity">
+
+    <com.example.gramophone.ui.main.VinylDiscView
+        android:id="@+id/vinylDiscView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageButton
+        android:id="@+id/btnPlayPause"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_media_play"
+        app:layout_constraintBottom_toBottomOf="@id/vinylDiscView"
+        app:layout_constraintEnd_toEndOf="@id/vinylDiscView"
+        app:layout_constraintStart_toStartOf="@id/vinylDiscView"
+        app:layout_constraintTop_toTopOf="@id/vinylDiscView"
+        app:tint="@color/gramophone_gold" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vinylDiscView"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/txtCurrentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textColor="@color/gramophone_text_light"
+        app:layout_constraintBottom_toBottomOf="@id/seekBar"
+        app:layout_constraintStart_toStartOf="@id/seekBar" />
+
+    <TextView
+        android:id="@+id/txtTotalTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textColor="@color/gramophone_text_light"
+        app:layout_constraintBottom_toBottomOf="@id/seekBar"
+        app:layout_constraintEnd_toEndOf="@id/seekBar" />
+
+    <LinearLayout
+        android:id="@+id/controlsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintTop_toBottomOf="@id/seekBar">
+
+        <ImageButton
+            android:id="@+id/btnPrev"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_media_previous"
+            app:tint="@color/gramophone_gold" />
+
+        <Button
+            android:id="@+id/btnQueue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:text="Queue" />
+
+        <ImageButton
+            android:id="@+id/btnShuffle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_shuffle"
+            app:tint="@color/gramophone_gold" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_media_next"
+            app:tint="@color/gramophone_gold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
